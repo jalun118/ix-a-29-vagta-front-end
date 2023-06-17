@@ -29,6 +29,23 @@ Aplikasi Anda siap untuk digunakan!
 
 Lihat bagian tentang [penyebaran](https://facebook.github.io/create-react-app/docs/deployment) untuk informasi lebih lanjut.
 
+### `npm run lint`
+
+Menjalankan fungsi pemerikasaan kode sumber untuk mendeteksi dan melaporkan pelanggaran aturan penulisan kode, gaya penulisan, atau kesalahan umum lainnya.
+
+Aturan eslint tersebut masih dalam `tahap perbaikan`, masih banyak penulisan kode yang seharusnya benar dianggap salah oleh aturan eslint.\
+Jika peringatan eslint menurut anda itu tidak bener, anda bida memperbaiki aturan di sumber kode `.eslintrc.json`.
+
+Pelajari lebih lanjut di [Eslint.org](https://eslint.org/).
+
+### `npm run lint-fix`
+
+**Catatan : hati-hati dalam menjalankan fungi tersebut, periksa kembali pesan galat di konsol.**
+
+Menjalankan fungsi pemerikasaan sumber kode dan memperbaiki pelanggaran aturan penulisan kode, gaya penulisan, atau kesalahan umum lainnya.
+
+Pelajari lebih lanjut di [Eslint.org](https://eslint.org/).
+
 ### `npm run eject`
 **`JANGAN DIPAKAI ATAUPUN DI JALANKAN !!`**\.
 
