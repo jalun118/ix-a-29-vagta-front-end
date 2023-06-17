@@ -1,0 +1,30 @@
+.icon-nav-bottom {
+  @apply w-6 h-6 text-black dark:text-white md:group-hover:text-blue-600 md:dark:group-hover:text-blue-500 group-active:text-blue-600 dark:group-active:text-blue-500;
+}
+
+.bottom-nav.active > .icon-nav-bottom {
+  @apply dark:text-blue-400 text-blue-600;
+}
+
+.bottom-nav.active > .text-bottom-nav {
+  @apply dark:text-blue-400 text-blue-600;
+}
+
+.text-bottom-nav {
+  @apply text-sm text-black dark:text-white group-active:text-blue-600 dark:group-active:text-blue-500 select-none;
+}
+
+.bottom-nav-center > .icon-nav-bottom-center {
+  @apply text-black dark:text-white p-3 w-12 h-12 rounded-full shadow border-[2px] border-black dark:border-white transition;
+}
+.bottom-nav-center:active > .icon-nav-bottom-center {
+  @apply bg-blue-800 border-blue-800 text-white;
+}
+.bottom-nav-center.active > .icon-nav-bottom-center {
+  @apply text-white bg-blue-600 border-blue-600;
+}
+
+.item-nav {
+  @apply rounded-full transition-colors duration-150 ease-in-out;
+}
+
