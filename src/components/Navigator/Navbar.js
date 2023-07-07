@@ -1,10 +1,11 @@
-import { memo, useEffect, useState } from "react";
+import { memo, useContext, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Brand, BrandTitle2 } from "../../lib/Lib";
+import { SettupContext } from "../../lib/context/settup-context";
 import ButtonLinkActive from "../NavLinkCustom/ButtonLinkActive";
 import "./nav.css";
 
-const html = document.querySelector("html")
+const html = document.querySelector("html");
 
 const ArrayLink = [
   {
@@ -33,27 +34,28 @@ const StyleLink = "navlink mx-2 font-medium rounded-lg transition-all duration-3
 
 function Navbar() {
   const [Scroll, setScroll] = useState(false);
-  const [Theme, SetTheme] = useState("light")
+  const { GetContextSettup, SetContextSettup } = useContext(SettupContext);
   const { pathname } = useLocation();
   const MachingIndex = pathname === "/";
 
   useEffect(() => {
-    const valueTheme = localStorage.getItem("theme")
-    if (valueTheme === "dark") {
-      SetTheme(valueTheme);
-      html.classList.add("dark")
-    } else {
-      SetTheme("light");
-      html.classList.remove("dark")
+    if (GetContextSettup.themes === "dark") {
+      html.classList.add("dark");
     }
-  }, [])
+  }, []);
 
   function ToggleColor() {
-    const newTheme = Theme === "light" ? "dark" : "light";
-    SetTheme(newTheme);
-    if (newTheme === "light") html.classList.remove("dark")
-    if (newTheme === "dark") html.classList.add("dark")
-    localStorage.setItem('theme', newTheme);
+    const newTheme = GetContextSettup.themes === "light" ? "dark" : "light";
+    SetContextSettup({
+      ...GetContextSettup,
+      themes: newTheme
+    });
+    if (newTheme === "light") html.classList.remove("dark");
+    if (newTheme === "dark") html.classList.add("dark");
+    localStorage.setItem('setting', JSON.stringify({
+      ...GetContextSettup,
+      themes: newTheme
+    }));
   }
 
   const onScroll = () => {
@@ -108,7 +110,7 @@ function Navbar() {
               <ul className="block md:flex">
                 {LinkMap}
                 <button onClick={() => ToggleColor()} className="navlink font-medium rounded-full transition-all duration-300 flex p-2 text-base text-back my-1 lg:my-0 hover:bg-teal-600 active:bg-teal-700 hover:text-white">
-                  {Theme === "light" ? (
+                  {GetContextSettup.themes === "light" ? (
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-7 h-7 text-amber-500">
                       <path fillRule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z" clipRule="evenodd" />
                     </svg>

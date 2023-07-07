@@ -1,6 +1,11 @@
-function IconFlower({ className }) {
+/**
+ * @param {React.SVGProps<SVGSVGElement>} props 
+ * @returns {React.JSX.Element}
+ */
+
+function IconFlower(props) {
   return (
-    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" fill="#000000" className={className}>
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" fill="#000000" {...props}>
       <defs>
         <circle id="a" cx="50" cy="50" r="50" />
       </defs>
@@ -12,23 +17,33 @@ function IconFlower({ className }) {
         <path fill="#EB675A" d="M50 21.023V58c11.046 0 20-8.954 20-20V21L59.941 31 50 21.023z" />
       </g>
     </svg>
-  )
+  );
 }
 
-function IconEagle({ className }) {
+/**
+ * @param {React.SVGProps<SVGSVGElement>} props 
+ * @returns {React.JSX.Element}
+ */
+
+function IconEagle(props) {
   return (
-    <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" preserveAspectRatio="xMidYMid meet" className={className}>
+    <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" preserveAspectRatio="xMidYMid meet" {...props}>
       <path fill="#292F33" d="M7.042 26c.33 0 .651.121.963.331c1.368-8.106 20.362-8.248 21.755-.29c1.666.412 3.08 4.378 3.748 9.959h-31c.793-5.899 2.522-10 4.534-10z" />
       <path fill="#E1E8ED" d="M7.043 23.688C10.966 12.533 6.508 3 17.508 3s8.736 8.173 13.193 19.125c1.119 2.75-1.443 5.908-1.443 5.908s-2.612-4.756-4.75-5.846c-.591 3.277-1.75 6.938-1.75 6.938s-2.581-2.965-5.587-5.587c-.879 1.009-2.065 2.183-3.663 3.462c-.349-1.048-.943-2.339-1.568-3.576c-1.468 2.238-3.182 4.951-3.182 4.951s-2.507-2.435-1.715-4.687z" />
       <path fill="#FFCC4D" d="M11.507 5c-4.36 3.059-5.542 2.16-7.812 3.562c-2.125 1.312-2 4.938-.125 8.062c.579-2.661-.5-3.149 6.938-3.149c5 0 7.928.289 7-1c-.927-1.289-10.027.459-6.001-7.475z" />
       <path fill="#292F33" d="M16.535 7.517a1.483 1.483 0 1 1-2.967 0c0-.157.031-.305.076-.446h2.816c.044.141.075.289.075.446z" />
     </svg>
-  )
+  );
 }
 
-function IconSchool({ className }) {
+/**
+ * @param {React.SVGProps<SVGSVGElement>} props 
+ * @returns {React.JSX.Element}
+ */
+
+function IconSchool(props) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" viewBox="0 0 508 508" className={className} space="preserve">
+    <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" viewBox="0 0 508 508" {...props} space="preserve">
       <rect x="90.8" y="220.8" style={{ fill: "#E6E9EE" }} width="326.4" height="204.8" />
       <path style={{ fill: "#324A5E" }} d="M425.2,194.4H82.8c-2,0-3.2,1.6-3.2,3.2v19.6c0,2,1.6,3.2,3.2,3.2h342.4c2,0,3.2-1.6,3.2-3.2v-19.6  C428.4,196,426.8,194.4,425.2,194.4z" />
       <polygon style={{ fill: "#FFFFFF" }} points="338,153.6 338,425.6 170,425.6 170,153.6 254,112.8 " />
@@ -67,12 +82,17 @@ function IconSchool({ className }) {
       </g>
       <rect x="230.8" y="371.2" style={{ fill: "#324A5E" }} width="46.4" height="54.4" />
     </svg>
-  )
+  );
 }
 
-function IconLion({ className }) {
+/**
+ * @param {React.SVGProps<SVGSVGElement>} props 
+ * @returns {React.JSX.Element}
+ */
+
+function IconLion(props) {
   return (
-    <svg className={className} version="1.1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" fill="currentColor" space="preserve">
+    <svg {...props} version="1.1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" fill="currentColor" space="preserve">
       <g>
         <path d="M489.814,298.597c-20.668-24.111-43.333-24.982-59.433-24.982c-17.548,0-34.995,5.496-49.128,15.476
 		l-0.369,0.266h-87.719l-0.345-2.818c0.126-0.028,12.031-3.075,21.569-11.696c-21.402-10.036-39.497-46.52-40.281-48.117
@@ -93,20 +113,30 @@ function IconLion({ className }) {
 		C512,380.394,511.24,323.594,489.814,298.597z"/>
       </g>
     </svg>
-  )
+  );
 }
 
-function IconDev({ className }) {
+/**
+ * @param {React.SVGProps<SVGSVGElement>} props 
+ * @returns {React.JSX.Element}
+ */
+
+function IconDev(props) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className}>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" {...props}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
     </svg>
-  )
+  );
 }
 
-function IconNote({ className }) {
+/**
+ * @param {React.SVGProps<SVGSVGElement>} props 
+ * @returns {React.JSX.Element}
+ */
+
+function IconNote(props) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" className={className} xlink="http://www.w3.org/1999/xlink" fill="currentColor" version="1.1" viewBox="0 0 345.369 345.369" space="preserve">
+    <svg xmlns="http://www.w3.org/2000/svg" {...props} xlink="http://www.w3.org/1999/xlink" fill="currentColor" version="1.1" viewBox="0 0 345.369 345.369" space="preserve">
       <g>
         <path d="M199.654,105.629H49.965c-4.143,0-7.5-3.357-7.5-7.5s3.357-7.5,7.5-7.5h149.689c4.142,0,7.5,3.357,7.5,7.5S203.796,105.629,199.654,105.629z" />
       </g>
@@ -121,16 +151,21 @@ function IconNote({ className }) {
       </g>
       <path d="M333.404,34.782l-17.108-12.757c-4.308-3.212-9.605-4.558-14.923-3.779c-5.316,0.775-10.012,3.573-13.223,7.8c-0.002,0.002-0.004,0.005-0.005,0.007l-42.411,57.48V26.529c0-4.143-3.357-7.5-7.5-7.5h-31.08V7.5c0-4.143-3.358-7.5-7.5-7.5c-4.143,0-7.5,3.357-7.5,7.5v11.529H169.73V7.5c0-4.143-3.357-7.5-7.5-7.5c-4.142,0-7.5,3.357-7.5,7.5v11.529h-22.422V7.5c0-4.143-3.357-7.5-7.5-7.5c-4.143,0-7.5,3.357-7.5,7.5v11.529H94.887V7.5c0-4.143-3.358-7.5-7.5-7.5c-4.143,0-7.5,3.357-7.5,7.5v11.529H57.465V7.5c0-4.143-3.358-7.5-7.5-7.5c-4.143,0-7.5,3.357-7.5,7.5v11.529H11.383c-4.142,0-7.5,3.357-7.5,7.5v311.34c0,4.143,3.358,7.5,7.5,7.5h226.852c4.143,0,7.5-3.357,7.5-7.5V188.138l91.767-125.204c0.001-0.002,0.003-0.003,0.005-0.005C344.134,54.038,342.295,41.412,333.404,34.782z M230.734,330.369H18.883V34.029h23.582v11.527c0,4.143,3.357,7.5,7.5,7.5c4.142,0,7.5-3.357,7.5-7.5V34.029h22.422v11.527c0,4.143,3.357,7.5,7.5,7.5c4.142,0,7.5-3.357,7.5-7.5V34.029h22.422v11.527c0,4.143,3.357,7.5,7.5,7.5c4.143,0,7.5-3.357,7.5-7.5V34.029h22.422v11.527c0,4.143,3.358,7.5,7.5,7.5c4.143,0,7.5-3.357,7.5-7.5V34.029h22.424v11.527c0,4.143,3.357,7.5,7.5,7.5c4.142,0,7.5-3.357,7.5-7.5V34.029h23.58v70.166l-39.113,53.668H49.965c-4.143,0-7.5,3.357-7.5,7.5c0,4.143,3.357,7.5,7.5,7.5h130.725c0,0-42.642,58.513-42.65,58.525c0,0,0.002,0,0.004,0c-0.484,0.673-0.87,1.432-1.115,2.272l-17.15,58.669H49.965c-4.143,0-7.5,3.357-7.5,7.5c0,4.143,3.357,7.5,7.5,7.5c0,0,75.515-0.006,75.555-0.006c0-0.001-0.001-0.002-0.002-0.002c1.373-0.022,2.744-0.413,3.951-1.193l56.059-36.229c0.771-0.498,1.412-1.119,1.932-1.813c0.018-0.024,43.275-59.367,43.275-59.367V330.369z M148.296,248.23l20.024,14.932l-30.069,19.432L148.296,248.23z M179.861,253.057l-25.305-18.869L272.844,71.883l25.305,18.869L179.861,253.057z M307.05,78.678l-25.306-18.869l8.076-10.83l25.305,18.871L307.05,78.678z M325.48,53.962c-0.002,0.002-0.004,0.005-0.005,0.007l-1.384,1.855l-25.305-18.871l1.383-1.854c0.002-0.002,0.004-0.004,0.006-0.006c0.816-1.095,2.01-1.807,3.361-2.004c1.353-0.196,2.697,0.146,3.791,0.961l17.109,12.757C326.697,48.492,327.165,51.702,325.48,53.962z" />
     </svg>
-  )
+  );
 }
 
-function IconBank({ className }) {
+/**
+ * @param {React.SVGProps<SVGSVGElement>} props 
+ * @returns {React.JSX.Element}
+ */
+
+function IconBank(props) {
   return (
-    <svg fill="currentColor" viewBox="-1.5 0 19 19" xmlns="http://www.w3.org/2000/svg" className={className}>
+    <svg fill="currentColor" viewBox="-1.5 0 19 19" xmlns="http://www.w3.org/2000/svg" {...props}>
       <path d="M15.442 14.75v.491H.558v-.49a.476.476 0 0 1 .475-.476h.478a.487.487 0 0 1-.003-.048v-.443a.476.476 0 0 1 .475-.475h.713V7.164H1.508a.554.554 0 0 1-.22-1.063L7.78 3.288a.554.554 0 0 1 .44 0L14.712 6.1a.554.554 0 0 1-.22 1.063h-1.188v6.145h.713a.476.476 0 0 1 .475.475v.443a.443.443 0 0 1-.003.048h.478a.476.476 0 0 1 .475.475zM3.804 13.31h2.058V8.264H3.804zm.377-7.254h7.639L8 4.4zm2.79 2.21v5.043h2.058V8.265zm5.225 5.043V8.265h-2.059v5.044z" />
     </svg>
-  )
+  );
 }
 
-export { IconBank, IconDev, IconEagle, IconFlower, IconLion, IconNote, IconSchool }
+export { IconBank, IconDev, IconEagle, IconFlower, IconLion, IconNote, IconSchool };
 

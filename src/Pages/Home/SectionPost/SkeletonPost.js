@@ -5,5 +5,5 @@ export default function SkeletonPost({ ...props }) {
         <div className="w-80 h-80 bg-[#E0E0E0] dark:bg-[#323d4e]"></div>
       </div>
     </div>
-  )
+  );
 }

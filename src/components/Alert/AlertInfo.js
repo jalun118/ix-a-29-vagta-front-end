@@ -6,7 +6,7 @@ export default function AlertInfo({ text, BoldText, callBack, ...props }) {
   const [isClickHidden, SetClickHidden] = useState(false);
 
   function CloseHandler(e) {
-    SetClickHidden(true)
+    SetClickHidden(true);
 
     setTimeout(() => {
       if (callBack) {
@@ -14,7 +14,7 @@ export default function AlertInfo({ text, BoldText, callBack, ...props }) {
       }
 
       return SetHidden(true);
-    }, 500)
+    }, 500);
   }
 
   return (
@@ -36,5 +36,5 @@ export default function AlertInfo({ text, BoldText, callBack, ...props }) {
           </div>
         </motion.div> : null}
     </>
-  )
+  );
 }

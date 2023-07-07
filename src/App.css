@@ -28,3 +28,115 @@
 button, a {
   @apply lg:cursor-pointer cursor-default
 }
+
+.tooltip {
+  @apply border-b-[#00000098] dark:border-b-[#ffffff9c];
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted;
+}
+
+.tooltip .tooltiptext {
+  @apply bg-[#00000098] text-white dark:bg-[#ffffff9c] dark:text-black;
+  visibility: hidden;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  padding-right: 10px;
+  padding-left: 10px;
+  transition: all;
+  transition-duration: 200ms;
+  opacity: 0;
+  white-space: nowrap;
+
+  position: absolute;
+  z-index: 1;
+  max-width: 180px;
+}
+
+.tooltip .tooltiptext.top {
+  transform: translateY(10px);
+
+  bottom: 100%;
+  left: 50%;
+  margin-left: -70%;
+  margin-bottom: 6px;
+}
+
+.tooltip .tooltiptext.top::after {
+  @apply border-transparent border-t-[#00000098] text-white dark:border-t-[#ffffff9c] dark:text-black;
+  content: " ";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+}
+
+.tooltip .tooltiptext.left {
+  transform: translateX(10px);
+  
+  position: absolute;
+  z-index: 1;
+  max-width: 180px;
+  top: 6px;
+  right: 115%;
+}
+
+.tooltip .tooltiptext.left::after {
+  @apply border-transparent border-l-[#00000098] text-white dark:border-l-[#ffffff9c] dark:text-black;
+  content: " ";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+}
+
+.tooltip .tooltiptext.bottom {
+  transform: translateY(-10px);
+  
+  top: 100%;
+  left: 50%;
+  margin-left: -70%;
+  margin-top: 8px;
+}
+
+.tooltip .tooltiptext.bottom::after {
+  @apply border-transparent border-b-[#00000098] text-white dark:border-b-[#ffffff9c] dark:text-black;
+  content: " ";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+}
+
+.tooltip .tooltiptext.right {
+  transform: translateX(-10px);
+  
+  top: 7px;
+  left: 115%;
+}
+
+.tooltip .tooltiptext.right::after {
+  @apply border-transparent border-r-[#00000098] text-white dark:border-r-[#ffffff9c] dark:text-black;
+  content: " ";
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+}
+@media (max-width: 992px) {
+  .tooltip:is(:active) .tooltiptext:not(:active) {
+    visibility: visible;
+    transform: scale(1);
+    opacity: 1;
+    z-index: 10;
+  }
+}

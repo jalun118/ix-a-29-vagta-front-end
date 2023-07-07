@@ -5,5 +5,6 @@
   "intelephense.files.associations": [
     "*.php",
     "*.phtml"
-  ]
+  ],
+  "tailwindCSS.emmetCompletions": true,
 }

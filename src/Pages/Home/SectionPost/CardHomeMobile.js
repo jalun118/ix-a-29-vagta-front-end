@@ -5,7 +5,7 @@ import ModalImage from "./ModalImage";
 
 export default function CardHomeMobile({ image, title, to, onClick, ...props }) {
   const navigate = useNavigate();
-  const [isModalShow, setShowModal] = useState(false)
+  const [isModalShow, setShowModal] = useState(false);
 
   const handlerClick = (e) => {
     e.preventDefault();
@@ -16,8 +16,8 @@ export default function CardHomeMobile({ image, title, to, onClick, ...props }) 
   };
 
   function centexHnadler(e) {
-    e.preventDefault()
-    setShowModal(true)
+    e.preventDefault();
+    setShowModal(true);
   }
 
   return (
@@ -32,5 +32,5 @@ export default function CardHomeMobile({ image, title, to, onClick, ...props }) 
 
       {isModalShow ? <ModalImage Image={image} close={() => setShowModal(false)} isModalShow={isModalShow} /> : null}
     </>
-  )
+  );
 }

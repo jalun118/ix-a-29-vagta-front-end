@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import LOGO from "../img/logo.svg";
 import "./lazy.css";
@@ -8,6 +8,11 @@ const lib = {};
 lib.apiPoint = "https://api-a29vagta.vercel.app/api/";
 lib.keyData = "EzL8m8zkUW_XsGNTjm24pEJu6akCy_cUp8GvGWvlTHdeqHoUDr9O8pLtB_q0";
 lib.origin = window.location.origin;
+
+/**
+ * @param {Date} date 
+ * @returns {string}
+ */
 
 function timeSince(date) {
   let NewDate = new Date(date);
@@ -36,11 +41,21 @@ function timeSince(date) {
   return "baru saja";
 }
 
+/**
+ * @param {string} newTitle 
+ * @returns {HTMLMetaElement}
+ */
+
 const TabTitle = (newTitle) => {
   return (document.title = newTitle);
 };
 
 const defaultDescription = "website ix a angkatan 29 smpn 1 pagedangan atau vagta";
+
+/**
+ * @param {string} newDescription 
+ * @returns {HTMLMetaElement}
+ */
 
 const metaDescription = (newDescription) => {
   return (document.querySelector("meta[name=\"description\"]").setAttribute("content", newDescription || defaultDescription));
@@ -49,41 +64,58 @@ const metaDescription = (newDescription) => {
 const defaultSViewPort = "width=device-width, initial-scale=1";
 const SetUPViewPort = "maximum-scale=1.0, user-scalable=no";
 
+/**
+ * @param {string} SetViportSetUP 
+ * @param {boolean} isZoom
+ * @returns {HTMLMetaElement}
+ */
+
 const metaViewPort = (SetViportSetUP = "", isZoom) => {
   return (document.querySelector("meta[name=\"viewport\"]")).setAttribute("content", isZoom ? `${defaultSViewPort}, ${SetViportSetUP}` : `${defaultSViewPort}, ${SetUPViewPort}`);
 };
 
-
 const NameIndexPage = "IX A 29 - SMPN 1 PAGEDANGAN";
 
-function Brand({ className, alt, style, ...props }) {
+/**
+ * @param {React.DetailedHTMLProps<React.ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>} props 
+ * @returns {React.JSX.Element}
+ */
+
+function Brand(props) {
   return (
     <img
       src={LOGO}
-      className={className}
-      alt={alt}
-      style={style}
       {...props}
     />
   );
 }
 
-function BrandTitle({ className, style, ...props }) {
+/**
+ * @param {React.DetailedHTMLProps<React.HTMLAttributes<HTMLSpanElement>, HTMLSpanElement>} props 
+ * @returns {React.JSX.Element}
+ */
+
+function BrandTitle(props) {
   return (
     <>
       IX A 29 -{" "}
-      <span style={style} {...props} className={className}>
+      <span {...props}>
         1 Vagta
       </span>
     </>
   );
 }
 
-function BrandTitle2({ className, style, ...props }) {
+/**
+ * @param {React.DetailedHTMLProps<React.HTMLAttributes<HTMLSpanElement>, HTMLSpanElement>} props 
+ * @returns {React.JSX.Element}
+ */
+
+function BrandTitle2(props) {
   return (
     <>
       IX A 29 -{" "}
-      <span style={style} {...props} className={className}>
+      <span {...props}>
         SMPN 1 PAGEDANGAN
       </span>
     </>
@@ -105,6 +137,10 @@ const registerObserver = (ref, setShowImage, minDelay = 0, maxDelay = 0) => {
   });
   observer.observe(ref);
 };
+
+/**
+ * @returns {React.JSX.Element}
+ */
 
 function LazyImage({ children, ratio, mindelay = null, maxdelay = null, className = "", background = true, ...props }) {
   const [showImage, setShowImage] = useState(false);
@@ -153,16 +189,43 @@ function Spiner() {
   );
 }
 
+/**
+ * @returns {object<URLSearchParams>}
+ */
+
 function useSearchQuery() {
   const { search } = useLocation();
   const searchParams = new URLSearchParams(search);
   return { query: searchParams, search: search };
 }
 
+/**
+ * @param {RequestInfo|URL} url
+ * @param {RequestInit|undefined} data
+ * @returns {Promise<Response>}
+ */
+
 async function FetchRequest(url, data = {}) {
   const Respon = await fetch(url, data);
   return await Respon.json();
 }
+
+const SatuanWaktu = {
+  tahun: 31536000,
+  bulan: 2592000,
+  minggu: 604800,
+  hari: 86400,
+  jam: 3600,
+  menit: 60
+};
+
+/**
+ * @param {Date|string|number} DateFormat
+ * @param {boolean} since
+ * @param {SatuanWaktu.menit|number} sinceState
+ * @param {number|undefined} afterDate
+ * @returns {object}
+ */
 
 function LocaleFormatIndonesia(DateFormat, since = false, sinceState = 60, afterDate = 3) {
   const date = new Date(DateFormat);
@@ -216,23 +279,24 @@ function LocaleFormatIndonesia(DateFormat, since = false, sinceState = 60, after
   return ObjFormat;
 }
 
-const SatuanWaktu = {
-  tahun: 31536000,
-  bulan: 2592000,
-  minggu: 604800,
-  hari: 86400,
-  jam: 3600,
-  menit: 60
-};
+/**
+ * @param {number} min
+ * @param {number} max
+ * @param {Array<any>} logic
+ * @param {*} isLogic
+ * @param {null|undefined} Plus
+ * @param {null|undefined} Minus
+ * @returns {number}
+ */
 
-function randInt(min, max, logic = [], index, operator = "-", Plus = null, Minus = null) {
+function randInt(min, max, logic = [], isLogic, operator = "-", Plus = null, Minus = null) {
   min = Math.ceil(min);
   max = Math.floor(max);
-  if (logic.includes(index) && operator === "-") {
+  if (logic.includes(isLogic) && operator === "-") {
     return -Math.floor(Math.random() * (max - min + 1) + min);
   }
 
-  if (logic.includes(index)) {
+  if (logic.includes(isLogic)) {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
@@ -245,6 +309,16 @@ function randInt(min, max, logic = [], index, operator = "-", Plus = null, Minus
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
+/**
+ * @param {number} min
+ * @param {number} max
+ * @param {Array<any>} logic
+ * @param {*} isLogic
+ * @param {null|undefined} Plus
+ * @param {null|undefined} Minus
+ * @returns {number}
+ */
+
 function randFloat(min, max, logic = [], index, operator = "-") {
   if (logic.includes(index) && operator === "-") {
     return -(Math.random() * (max - min) + min);
@@ -255,7 +329,13 @@ function randFloat(min, max, logic = [], index, operator = "-") {
   return Math.random() * (max - min) + min;
 }
 
-function ImageToBase64(imgUrl, callback) {
+/**
+ * @param {URL|RequestInfo|string} imgUrl
+ * @param {void} callback
+ * @returns {string}
+ */
+
+function ImageToBase64(imgUrl, callback = () => {}) {
   const image = new Image();
   image.crossOrigin = 'anonymous';
   image.src = imgUrl;
@@ -265,8 +345,8 @@ function ImageToBase64(imgUrl, callback) {
   canvas.width = image.naturalWidth;
   ctx.drawImage(image, 0, 0);
   const dataUrl = canvas.toDataURL();
-  callback && callback(dataUrl)
-  return dataUrl
+  callback && callback(dataUrl);
+  return dataUrl;
 }
 
 export { Brand, BrandTitle, BrandTitle2, FetchRequest, ImageToBase64, LazyImage, LoadingSpiner, LocaleFormatIndonesia, NameIndexPage, SatuanWaktu, Spiner, TabTitle, defaultDescription, lib, metaDescription, metaViewPort, randFloat, randInt, timeSince, useSearchQuery };

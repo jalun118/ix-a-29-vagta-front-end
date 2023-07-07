@@ -26,7 +26,7 @@ export default function ErrorPage({ ErrorCode, message, Redirect = "/", callBack
       </div >
     );
   }
-  
+
   return (
     <div className="h-[100vh] text-center flex flex-col justify-center" style={{ alignItems: "center" }}>
       <div>

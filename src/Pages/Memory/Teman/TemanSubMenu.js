@@ -11,7 +11,7 @@ function CardTeman({ idx, ...props }) {
     const parts = [];
     let currentPart = sentence.toLowerCase();
     currentPart = currentPart.replace(regex, "");
-    currentPart = currentPart.split(", ")
+    currentPart = currentPart.split(", ");
 
     for (let i = 0; i < keywords.length; i++) {
       const keyword = keywords[i].toLowerCase();
@@ -55,9 +55,6 @@ function CardTeman({ idx, ...props }) {
   ];
   const modifiedSentence = checkAndAddElements(idx.pangkat, keywords, elements);
 
-  let newLencana = idx.pangkat.toLowerCase();
-  newLencana = newLencana.replace(regex, "mantan ");
-
   return (
     <div {...props} className="w-full max-w-[100%] p-4 px-5 capitalize bg-white border bg-opacity-40 dark:bg-opacity-40 border-gray-200 rounded-lg shadow sm:p-6 dark:bg-gray-800 dark:border-gray-700">
       <h5 className="mb-4 text-xl font-bold text-gray-900 dark:text-gray-200 align-middle flex items-center">presensi {idx.no_absen} {modifiedSentence}</h5>
@@ -68,12 +65,9 @@ function CardTeman({ idx, ...props }) {
         <li className="flex space-x-3">
           <span className="text-base font-normal leading-tight text-gray-700 dark:text-gray-300">kelas : {idx.kelas}</span>
         </li>
-        <li className="flex space-x-3">
-          <span className="text-base font-normal leading-tight text-gray-700 dark:text-gray-300">Lencana : {newLencana}</span>
-        </li>
       </ul>
     </div>
-  )
+  );
 }
 
 export default function TemanSubMenu() {

@@ -16,8 +16,8 @@ function Card({ thumbnail, title, describe, date, linkDownload, linkRepo, ...pro
   }
 
   function centexHnadler(e) {
-    e.preventDefault()
-    SetShowModalImage(true)
+    e.preventDefault();
+    SetShowModalImage(true);
   }
 
   const LINK_SHARE = window.location.origin + "/p/" + props.id;

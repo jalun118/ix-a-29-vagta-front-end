@@ -8,9 +8,9 @@ function SendEmail() {
 
 function StatisModal(isStatis) {
   if (isStatis) {
-    return body.style.overflow = "hidden"
+    return body.style.overflow = "hidden";
   }
-  return body.removeAttribute('style')
+  return body.removeAttribute('style');
 }
 
 export default function ModalVideo({ callBack, link, isShowModal }) {
@@ -20,8 +20,8 @@ export default function ModalVideo({ callBack, link, isShowModal }) {
 
   if (isShowModal) {
     setTimeout(() => {
-      setIsShow(true)
-    }, 200)
+      setIsShow(true);
+    }, 200);
   }
 
   function CopyToClipbord() {
@@ -44,14 +44,14 @@ export default function ModalVideo({ callBack, link, isShowModal }) {
       setIsShow(false);
       setTimeout(() => {
         if (callBack) {
-          callBack(e)
+          callBack(e);
         }
-        return StatisModal(false)
-      }, 200)
+        return StatisModal(false);
+      }, 200);
     }
   }
 
-  StatisModal(true)
+  StatisModal(true);
 
   return (
     <>

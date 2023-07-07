@@ -1,4 +1,4 @@
-import { lazy, Suspense, useCallback } from "react";
+import { lazy, Suspense, useCallback, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import ErrorPage from "./components/Errorpage/ErrorPage";
@@ -7,6 +7,7 @@ import RequestApi from "./lib/RequestHook/RequestApi";
 import Navbar from "./components/Navigator/Navbar";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import { AppContext } from "./lib/context/app-context";
+import { SettupContext } from "./lib/context/settup-context";
 import { LoadingSpiner } from "./lib/Lib";
 
 import BottomNav from "./components/BottomNavigation/BottomNav";
@@ -38,45 +39,58 @@ function BodyClass() {
 BodyClass();
 
 function App() {
+  let SettupInit = JSON.parse(localStorage.getItem("setting"));
+  if (!SettupInit) {
+    const _initState = JSON.stringify({ themes: "light", showTooltips: true });
+    SettupInit = _initState;
+    localStorage.setItem("setting", _initState);
+  }
+
+  const [GetContextSettup, SetContextSettup] = useState({
+    themes: SettupInit.themes || "light",
+    showTooltips: SettupInit.showTooltips || true
+  });
 
   const RequestContext = useCallback(() => {
     return RequestApi();
   }, []);
 
   return (
-    <div className="App child-app-back-drop">
-      <Navbar />
-      <ScrollToTop />
-      <main className="lg:mb-auto mb-16">
-        <div className="content">
-          <Suspense fallback={<LoadingSpiner />}>
-            <AppContext.Provider value={RequestContext()}>
-              <Routes>
-                <Route path='' element={<Home />} />
-                <Route path="watch" element={<Watch />} />
-                <Route path='memory' element={<Memory />} >
-                  <Route path='' element={<FotoSubmenu />} />
-                  <Route path='video' element={<VideoSubMenu />} />
-                  <Route path='teman' element={<TemanSubMenu />} />
-                </Route>
-                <Route path="upload" element={<UploadPage />}>
-                  <Route path='' element={<UploadFoto />} />
-                  <Route path='video' element={<UploadVideo />} />
-                </Route>
-                <Route path='question' element={<Document />} />
-                <Route path='p/:id' element={<Postings />} />
-                <Route path='team' element={<TeamInfo />} />
-                <Route path='privacy-policy' element={<PrivacyPolicy />} />
-                <Route path='terms-conditions' element={<TermsConditions />} />
-                <Route path="*" element={<ErrorPage ErrorCode={404} message={"halaman tidak ditemukan"} Redirect="/" callBack={() => RefreshBrowser()} />} />
-              </Routes>
-            </AppContext.Provider>
-          </Suspense>
-        </div>
-      </main>
-      <ButtonSetting />
-      <BottomNav />
-    </div>
+    <SettupContext.Provider value={{ GetContextSettup, SetContextSettup }}>
+      <div className="App child-app-back-drop">
+        <Navbar />
+        <ScrollToTop />
+        <main className="lg:mb-auto mb-16">
+          <div className="content">
+            <Suspense fallback={<LoadingSpiner />}>
+              <AppContext.Provider value={RequestContext()}>
+                <Routes>
+                  <Route path='' element={<Home />} />
+                  <Route path="watch" element={<Watch />} />
+                  <Route path='memory' element={<Memory />} >
+                    <Route path='' element={<FotoSubmenu />} />
+                    <Route path='video' element={<VideoSubMenu />} />
+                    <Route path='teman' element={<TemanSubMenu />} />
+                  </Route>
+                  <Route path="upload" element={<UploadPage />}>
+                    <Route path='' element={<UploadFoto />} />
+                    <Route path='video' element={<UploadVideo />} />
+                  </Route>
+                  <Route path='question' element={<Document />} />
+                  <Route path='p/:id' element={<Postings />} />
+                  <Route path='team' element={<TeamInfo />} />
+                  <Route path='privacy-policy' element={<PrivacyPolicy />} />
+                  <Route path='terms-conditions' element={<TermsConditions />} />
+                  <Route path="*" element={<ErrorPage ErrorCode={404} message={"halaman tidak ditemukan"} Redirect="/" callBack={() => RefreshBrowser()} />} />
+                </Routes>
+              </AppContext.Provider>
+            </Suspense>
+          </div>
+        </main>
+        <ButtonSetting />
+        <BottomNav />
+      </div>
+    </SettupContext.Provider>
   );
 }
 

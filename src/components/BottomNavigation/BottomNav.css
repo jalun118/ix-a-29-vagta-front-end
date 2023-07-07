@@ -1,5 +1,5 @@
 .icon-nav-bottom {
-  @apply w-6 h-6 text-black dark:text-white md:group-hover:text-blue-600 md:dark:group-hover:text-blue-500 group-active:text-blue-600 dark:group-active:text-blue-500;
+  @apply w-7 h-7 text-black dark:text-white md:group-hover:text-blue-600 md:dark:group-hover:text-blue-500 group-active:text-blue-600 dark:group-active:text-blue-500;
 }
 
 .bottom-nav.active > .icon-nav-bottom {

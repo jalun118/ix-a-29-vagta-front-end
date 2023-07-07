@@ -85,9 +85,9 @@ export default function Postings() {
           </div>
         </div>
       </div>
-      {IsShowModal ? (
+      {IsShowModal && (
         <ModalCard callBack={() => SetShowModal(false)} link={LinkShare} />
-      ) : null}
+      )}
     </>
   );
 }

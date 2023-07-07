@@ -151,5 +151,5 @@ export default function SectionAjakan() {
         </div>
       </div>
     </>
-  )
+  );
 }

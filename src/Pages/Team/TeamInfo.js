@@ -8,46 +8,6 @@ export default function TeamInfo() {
   const context = useContext(AppContext);
   const { GetTeam } = context.GetTeam;
 
-  // const checkAndAddElements = (sentence, keywords, elements) => {
-  //   const parts = [];
-  //   let currentPart = sentence;
-
-  //   for (let i = 0; i < keywords.length; i++) {
-  //     const keyword = keywords[i];
-  //     const element = elements[i];
-
-  //     if (currentPart.includes(keyword)) {
-  //       const keywordIndex = currentPart.indexOf(keyword);
-  //       const afterKeyword = currentPart.substring(keywordIndex + keyword.length);
-  //       parts.push(element);
-  //       currentPart = afterKeyword;
-  //     }
-  //   }
-
-  //   parts.push(currentPart);
-
-  //   return (
-  //     <div>
-  //       {parts.map((part, index) => (
-  //         <Fragment key={index}>{part}</Fragment>
-  //       ))}
-  //     </div>
-  //   );
-  // };
-
-  // const sentence = 'Ini adalah kalimat contoh yang mengandung kata kunci pertama, kata kunci kedua, dan kata kunci ketiga.';
-  // const keywords = ['kata kunci pertama', 'kata kunci kedua', 'kata kunci ketiga'];
-  // const elements = [
-  //   <strong>Elemen Pertama</strong>,
-  //   <em>Elemen Kedua</em>,
-  //   <span style={{ color: 'blue' }}>Elemen Ketiga</span>,
-  //   <span style={{ color: 'blue' }}>Elemen EMpat</span>,
-  //   <span style={{ color: 'blue' }}>Elemen Lima</span>,
-  //   <span style={{ color: 'blue' }}>Elemen Enam</span>,
-  //   <span style={{ color: 'blue' }}>Elemen Tujuh</span>,
-  // ];
-  // const modifiedSentence = checkAndAddElements(sentence, keywords, elements);
-
   return (
     <>
       <div className="md:mx-10 mt-3 pb-5 mx-4 flex justify-center">

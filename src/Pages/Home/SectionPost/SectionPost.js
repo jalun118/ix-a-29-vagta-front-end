@@ -42,7 +42,7 @@ function SectionPost({ GetLatestPost }) {
             {GetLatestPost.map((i, idx) => {
               return (
                 <CardHomeMobile to={"/memory#" + i.id_build} image={i.link_foto} title={i.judul} key={idx} />
-              )
+              );
             })}
           </div>) : (
             <div className="grid gap-4 grid-cols-2 md:gap-6 lg:grid-cols-3 lg:max-w-screen-lg min-h-[70vh]">
@@ -56,7 +56,7 @@ function SectionPost({ GetLatestPost }) {
           )}
       </div>
     </>
-  )
+  );
 }
 
 export default memo(SectionPost);

@@ -2,6 +2,8 @@ import { useEffect, useReducer } from "react";
 import { useLocation } from "react-router-dom";
 import { FetchRequest, lib } from "../Lib";
 
+/* intial field request */
+
 const intialRequest = {
   GetFoto: [],
   LoadingFoto: true,
@@ -19,6 +21,8 @@ const intialRequest = {
   GetTeam: [],
 };
 
+/* type field request */
+
 const TypeRequest = {
   GetFoto: "GET_FOTO",
   ErrorFoto: "ERROR_FOTO",
@@ -32,6 +36,8 @@ const TypeRequest = {
   GetLatestPost: "GET_LATEST_POST",
   GetTeam: "GET_TEAM",
 };
+
+/* function reducer */
 
 function ReduceRequest(state, action) {
   switch (action.type) {

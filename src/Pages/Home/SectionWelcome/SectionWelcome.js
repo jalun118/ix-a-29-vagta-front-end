@@ -1,4 +1,4 @@
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
 
 export default function SectionWelcome() {
   return (
@@ -32,7 +32,7 @@ export default function SectionWelcome() {
         </motion.p>
       </div>
     </section>
-  )
+  );
 }
 
 

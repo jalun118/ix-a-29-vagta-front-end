@@ -5,34 +5,34 @@ const body = document.querySelector("body");
 
 function StatisModal(isStatis) {
   if (isStatis) {
-    metaViewPort("", true)
-    return body.style.overflow = "hidden"
+    metaViewPort("", true);
+    return body.style.overflow = "hidden";
   }
-  metaViewPort("")
-  return body.removeAttribute('style')
+  metaViewPort("");
+  return body.removeAttribute('style');
 }
 
 export default function ModalImage({ Image, close, isModalShow }) {
-  const [isShow, SetIsShow] = useState(false)
+  const [isShow, SetIsShow] = useState(false);
 
   if (isModalShow) {
     setTimeout(() => {
-      SetIsShow(true)
-    }, 200)
+      SetIsShow(true);
+    }, 200);
   }
 
   function CLoseModalCallback(e) {
     if (e.target.tagName === "IMG") {
-      return null
+      return null;
     }
     SetIsShow(false);
     return setTimeout(() => {
-      StatisModal(false)
-      return close(e)
-    }, 200)
+      StatisModal(false);
+      return close(e);
+    }, 200);
   }
 
-  StatisModal(true)
+  StatisModal(true);
 
   return (
     <div id="modal" tabIndex="-1" onClick={(e) => CLoseModalCallback(e)} aria-hidden="true" className={`fixed select-none justify-center items-center z-50 flex w-full p-4 overflow-x-hidden overflow-y-auto inset-0 md:h-full bg-black bg-opacity-80 transition duration-300 ease-in-out ${isShow ? "" : "opacity-0"}`}>
@@ -45,5 +45,5 @@ export default function ModalImage({ Image, close, isModalShow }) {
         </div>
       </div>
     </div>
-  )
+  );
 }
