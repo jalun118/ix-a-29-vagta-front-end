@@ -57,7 +57,7 @@ function CardTeman({ idx, ...props }) {
 
   return (
     <div {...props} className="w-full max-w-[100%] p-4 px-5 capitalize bg-white border bg-opacity-40 dark:bg-opacity-40 border-gray-200 rounded-lg shadow sm:p-6 dark:bg-gray-800 dark:border-gray-700">
-      <h5 className="mb-4 text-xl font-bold text-gray-900 dark:text-gray-200 align-middle flex items-center">presensi {idx.no_absen} {modifiedSentence}</h5>
+      <h5 className="mb-4 text-lg md:text-xl font-bold text-gray-900 dark:text-gray-200 align-middle flex items-center">presensi {idx.no_absen} {modifiedSentence}</h5>
       <ul className="space-y-2 my-2">
         <li className="flex space-x-3">
           <span className="text-base font-normal leading-tight text-gray-700 dark:text-gray-300">Nama : {idx.nama}</span>
@@ -86,7 +86,7 @@ export default function TemanSubMenu() {
       {LoadingTeman ? <LoadingSpiner /> : (ErrorTeman[0] === false) ? <ErrorPage message={ErrorTeman[2]} ErrorCode={ErrorTeman[1]} />
         : (
           <div className="container">
-            <div className="grid mb-6 lg:mb-16 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-3">
+            <div className="grid mb-12 lg:mb-16 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-3">
               {mapping}
             </div>
           </div>

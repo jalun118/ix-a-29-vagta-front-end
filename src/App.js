@@ -60,7 +60,7 @@ function App() {
       <div className="App child-app-back-drop">
         <Navbar />
         <ScrollToTop />
-        <main className="lg:mb-auto mb-16">
+        <main className="lg:mb-auto mb-4">
           <div className="content">
             <Suspense fallback={<LoadingSpiner />}>
               <AppContext.Provider value={RequestContext()}>

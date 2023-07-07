@@ -92,12 +92,12 @@ function Navbar() {
           <div className="px-4">
             <Link
               to="/"
-              className="flex align-middle items-center py-2 sm:text-[1.24rem] font-bold text-primary row-auto"
+              className="flex align-middle items-center py-1.5 sm:text-[1.24rem] font-bold text-primary row-auto"
             >
               <Brand
                 className="mr-1"
                 alt="my logo"
-                style={{ aspectRatio: "1/1", width: "2.7rem" }}
+                style={{ aspectRatio: "1/1", width: "2rem" }}
               />
               <BrandTitle2 className="text-blue-500" />
             </Link>

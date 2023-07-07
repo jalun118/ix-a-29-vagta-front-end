@@ -12,7 +12,7 @@ export default function ButtonSetting() {
   const [isOffSet, SetOffSet] = useState(false);
 
   return (
-    <div className="fixed flex flex-col-reverse bottom-[5.5rem] right-6 z-10 lg:hidden">
+    <div className="fixed flex flex-col-reverse bottom-[4.8rem] right-6 z-10 lg:hidden">
       <ButtonTrigerOpen isOpen={isOpen} callback={(e) => SetOpen(e)} />
       <ThemesButton OnOpen={isOpen} />
       <ButtonToTop OnOpen={isOpen} callbackOffset={(value) => SetOffSet(value)} callback={() => SetOpen(false)} />

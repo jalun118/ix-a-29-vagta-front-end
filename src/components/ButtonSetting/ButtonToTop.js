@@ -33,7 +33,7 @@ export default function ButtonToTop({ OnOpen, callback, callbackOffset = () => {
   }, []);
 
   return (
-    <button onClick={() => handlerToTop()} {...props} className={`tooltip text-white bg-lime-500 dark:bg-lime-600 flex justify-center items-center font-medium rounded-full text-sm shadow-xl shadow-gray-700/50 transition-all duration-300 delay-100 ease-in-out p-2 fixed ${OnOpen && isOffSet ? "bottom-[12.6rem] z-0 visible hover:scale-[1.1] active:scale-[1.1]" : "bottom-[5.5rem] scale-0 -z-40 invisible"} `}>
+    <button onClick={() => handlerToTop()} {...props} className={`tooltip text-white bg-lime-500 dark:bg-lime-600 flex justify-center items-center font-medium rounded-full text-sm shadow-xl shadow-gray-700/50 transition-all duration-300 delay-100 ease-in-out p-1.5 fixed ${OnOpen && isOffSet ? "bottom-[11rem] z-0 visible hover:scale-[1.1] active:scale-[1.1]" : "bottom-[4.8rem] scale-0 -z-40 invisible"} `}>
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
         <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l7.5-7.5 7.5 7.5m-15 6l7.5-7.5 7.5 7.5" />
       </svg>
